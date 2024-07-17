@@ -37,6 +37,18 @@ class LinkedList {
     return length;
   };
 
+  getHead = () => {
+    return this.head;
+  };
+
+  getTail = () => {
+    let curr = this.head;
+    while (curr.next !== null) {
+      curr = curr.next;
+    }
+    return curr;
+  };
+
   toString = () => {
     if (this.head === null) {
       return "List is empty";
@@ -64,3 +76,5 @@ list.prepend("gato");
 
 console.log(list.toString());
 console.log(list.size());
+console.log(list.getHead());
+console.log(list.getTail());
