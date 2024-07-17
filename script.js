@@ -38,10 +38,16 @@ class LinkedList {
   };
 
   getHead = () => {
+    if (this.head === null) {
+      return "List is empty";
+    }
     return this.head;
   };
 
   getTail = () => {
+    if (this.head === null) {
+      return "List is empty";
+    }
     let curr = this.head;
     while (curr.next !== null) {
       curr = curr.next;
@@ -50,6 +56,9 @@ class LinkedList {
   };
 
   at = (index) => {
+    if (this.head === null) {
+      return "List is empty";
+    }
     if (index < 1) {
       return "Search for a valid item";
     }
@@ -63,6 +72,24 @@ class LinkedList {
       curr = curr.next;
     }
     return "No item found";
+  };
+
+  pop = () => {
+    if (this.head === null) {
+      return "List is empty";
+    }
+    let curr = this.head;
+    let prev = null;
+    while (curr.next !== null) {
+      prev = curr;
+      curr = curr.next;
+    }
+    // in case there's only one item in the list
+    if (prev === null) {
+      this.head = null;
+    } else {
+      prev.next = null;
+    }
   };
 
   toString = () => {
@@ -95,3 +122,5 @@ console.log(list.size());
 console.log(list.getHead());
 console.log(list.getTail());
 console.log(list.at(6));
+console.log(list.pop());
+console.log(list.toString());
