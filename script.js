@@ -23,6 +23,10 @@ class LinkedList {
     curr.next = new Node(value, null);
   };
 
+  prepend = (value) => {
+    this.head = new Node(value, this.head);
+  };
+
   toString = () => {
     if (this.head === null) {
       return "List is empty";
@@ -45,5 +49,7 @@ list.append("parrot");
 list.append("hamster");
 list.append("snake");
 list.append("turtle");
+list.prepend("perro");
+list.prepend("gato");
 
 console.log(list.toString());
