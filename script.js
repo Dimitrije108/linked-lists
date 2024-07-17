@@ -49,6 +49,22 @@ class LinkedList {
     return curr;
   };
 
+  at = (index) => {
+    if (index < 1) {
+      return "Search for a valid item";
+    }
+    let curr = this.head;
+    let currAt = 1;
+    while (curr !== null) {
+      if (currAt === index) {
+        return curr;
+      }
+      currAt += 1;
+      curr = curr.next;
+    }
+    return "No item found";
+  };
+
   toString = () => {
     if (this.head === null) {
       return "List is empty";
@@ -78,3 +94,4 @@ console.log(list.toString());
 console.log(list.size());
 console.log(list.getHead());
 console.log(list.getTail());
+console.log(list.at(6));
