@@ -27,6 +27,16 @@ class LinkedList {
     this.head = new Node(value, this.head);
   };
 
+  size = () => {
+    let curr = this.head;
+    let length = 0;
+    while (curr !== null) {
+      length += 1;
+      curr = curr.next;
+    }
+    return length;
+  };
+
   toString = () => {
     if (this.head === null) {
       return "List is empty";
@@ -53,3 +63,4 @@ list.prepend("perro");
 list.prepend("gato");
 
 console.log(list.toString());
+console.log(list.size());
