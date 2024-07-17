@@ -92,6 +92,36 @@ class LinkedList {
     }
   };
 
+  contains = (value) => {
+    if (this.head === null) {
+      return "List is empty";
+    }
+    let curr = this.head;
+    while (curr !== null) {
+      if (curr.value === value) {
+        return true;
+      }
+      curr = curr.next;
+    }
+    return false;
+  };
+
+  find = (value) => {
+    if (this.head === null) {
+      return "List is empty";
+    }
+    let curr = this.head;
+    let index = 1;
+    while (curr !== null) {
+      if (curr.value === value) {
+        return index;
+      }
+      curr = curr.next;
+      index += 1;
+    }
+    return null;
+  };
+
   toString = () => {
     if (this.head === null) {
       return "List is empty";
@@ -124,3 +154,5 @@ console.log(list.getTail());
 console.log(list.at(6));
 console.log(list.pop());
 console.log(list.toString());
+console.log(list.contains("dog"));
+console.log(list.find("snake"));
