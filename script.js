@@ -134,6 +134,60 @@ class LinkedList {
     }
     return (stringOfValues += `null`);
   };
+
+  insertAt = (value, index) => {
+    if (index < 1) {
+      return "Listen properly!";
+    }
+    if (this.head === null) {
+      return "List is empty";
+    }
+    if (index === 1) {
+      this.head = new Node(value, this.head);
+      return;
+    }
+    let curr = this.head;
+    let prev = null;
+    let currAt = 1;
+    while (curr !== null) {
+      if (currAt === index) {
+        prev.next = new Node(value, curr);
+        return;
+      }
+      prev = curr;
+      curr = curr.next;
+      currAt += 1;
+    }
+    // insert at the end of the list if index is greater than
+    // the node list
+    prev.next = new Node(value, null);
+  };
+
+  removeAt = (index) => {
+    if (index < 1) {
+      return "Listen properly!";
+    }
+    if (this.head === null) {
+      return "List is empty";
+    }
+    if (index === 1) {
+      this.head = this.head.next;
+      return;
+    }
+    let curr = this.head;
+    let prev = null;
+    let currAt = 1;
+    while (curr !== null) {
+      if (currAt === index) {
+        prev.next = prev.next.next;
+        return;
+      }
+      prev = curr;
+      curr = curr.next;
+      currAt += 1;
+    }
+    return "No element at that index";
+  };
 }
 
 const list = new LinkedList();
@@ -156,3 +210,6 @@ console.log(list.pop());
 console.log(list.toString());
 console.log(list.contains("dog"));
 console.log(list.find("snake"));
+console.log(list.insertAt("dimisha", 15));
+console.log(list.removeAt(3));
+console.log(list.toString());
